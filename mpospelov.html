@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <link href="/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="/lib/bootstrap/dist/js/bootstrap.js" rel="stylesheet" />
+    <script src="/lib/angular/angular.js"></script>
+    <script src="/javascripts/mpospelov.js"></script>
+  </head>
+  <body ng-controller="FormController as ctrl">
+    <div class="container">
+      <form name="form" ng-submit="ctrl.submitForm()">
+        <div class="form-group">
+          <label for="cabin">Класс каюты</label><select class="form-control" name="cabin" ng-model="ctrl.$scope.formData.cabin" required="">
+            <option ng-repeat="option in ctrl.$scope.cabinClasses" value="{{$index}}">
+              {{ option }}
+            </option>
+          </select>
+          <div class="alert alert-danger" ng-show="form.cabin.$error.required" role="alert">
+            <span aria-hidden="true" class="glyphicon glyphicon-exclamation-sign"></span><span class="sr-only">Error:</span>Выберите класс каюты!
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="cabin">Возраст</label><select class="form-control" name="age" ng-model="ctrl.$scope.formData.age" required="">
+            <option ng-repeat="option in ctrl.$scope.ageClasses" value="{{$index}}">
+              {{ option }}
+            </option>
+          </select>
+          <div class="alert alert-danger" ng-show="form.age.$error.required" role="alert">
+            <span aria-hidden="true" class="glyphicon glyphicon-exclamation-sign"></span><span class="sr-only">Error:</span>Выберите Возраст!
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="cabin">Пол</label><select class="form-control" name="sex" ng-model="ctrl.$scope.formData.sex" required="">
+            <option ng-repeat="option in ctrl.$scope.sexClasses" value="{{$index}}">
+              {{ option }}
+            </option>
+          </select>
+          <div class="alert alert-danger" ng-show="form.sex.$error.required" role="alert">
+            <span aria-hidden="true" class="glyphicon glyphicon-exclamation-sign"></span><span class="sr-only">Error:</span>Выберите Пол!
+          </div>
+        </div>
+        <button class="btn btn-success" type="submit">Отправить</button>
+      </form>
+      <div class="alert notice">
+        {{ ctrl.$scope.responseValue }}
+      </div>
+    </div>
+  </body>
+</html>

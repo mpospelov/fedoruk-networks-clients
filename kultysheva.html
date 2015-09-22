@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <link href="/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="/lib/bootstrap/dist/js/bootstrap.js" rel="stylesheet" />
+    <script src="/lib/angular/angular.js"></script>
+    <script src="/javascripts/kultysheva.js"></script>
+  </head>
+  <body ng-controller="FormController as ctrl">
+    <div class="container">
+      <form name="form" ng-submit="ctrl.submitForm()">
+        <div class="form-group">
+          <label for="cabin">Первый параметр</label><input class="form-control" name="param1" ng-model="ctrl.$scope.formData[0]" required="" />
+          <div class="alert alert-danger" ng-show="form.param1.$error.required" role="alert">
+            <span aria-hidden="true" class="glyphicon glyphicon-exclamation-sign"></span><span class="sr-only">Error:</span>Установите первый параметр!
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="cabin">Второй параметр</label><input class="form-control" name="param2" ng-model="ctrl.$scope.formData[1]" required="" />
+          <div class="alert alert-danger" ng-show="form.param2.$error.required" role="alert">
+            <span aria-hidden="true" class="glyphicon glyphicon-exclamation-sign"></span><span class="sr-only">Error:</span>Установите второй параметр!
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="cabin">Третий параметр</label><input class="form-control" name="param3" ng-model="ctrl.$scope.formData[2]" required="" />
+          <div class="alert alert-danger" ng-show="form.param3.$error.required" role="alert">
+            <span aria-hidden="true" class="glyphicon glyphicon-exclamation-sign"></span><span class="sr-only">Error:</span>Установите третий параметр!
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="cabin">Четвертый параметр</label><input class="form-control" name="param4" ng-model="ctrl.$scope.formData[3]" required="" />
+          <div class="alert alert-danger" ng-show="form.param4.$error.required" role="alert">
+            <span aria-hidden="true" class="glyphicon glyphicon-exclamation-sign"></span><span class="sr-only">Error:</span>Установите четвертый параметр!
+          </div>
+        </div>
+        <button class="btn btn-success" type="submit">Отправить</button>
+      </form>
+      <div class="alert notice">
+        {{ ctrl.$scope.responseValue }}
+      </div>
+      <img ng-src="{{ ctrl.$scope.imageUrl.length &amp;&amp; ctrl.$scope.imageUrl}}" />
+    </div>
+  </body>
+</html>
