@@ -13,7 +13,7 @@
     FormController.prototype.submitForm = function() {
       var self;
       self = this;
-      return this.$http.post('http://localhost:4567/mpospelov', this.$scope.formData).then(function(response) {
+      return this.$http.post('http://fedoruk-networks.herokuapp.com/mpospelov', this.$scope.formData).then(function(response) {
         return self.$scope.responseValue = response.data;
       });
     };

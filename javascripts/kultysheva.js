@@ -10,7 +10,7 @@
     FormController.prototype.submitForm = function() {
       var self;
       self = this;
-      return this.$http.post('http://localhost:4567/akultisheva', this.$scope.formData).then(function(response) {
+      return this.$http.post('http://fedoruk-networks.herokuapp.com/akultisheva', this.$scope.formData).then(function(response) {
         self.$scope.responseValue = response.data;
         return self.$scope.imageUrl = response.data.output.url;
       });
